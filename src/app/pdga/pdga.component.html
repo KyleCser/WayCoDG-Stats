@@ -1,0 +1,77 @@
+<span class="h4 mt-4"> PDGA Data </span>
+
+<div class="card mt-3">
+  <div class="card-header">
+    <span class="h5 pt-0"> Players </span>
+
+    <button type="button" class="btn btn-success float-right" (click)="search(player)">
+      Search
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label class="font-weight-bold"> first_name </label>
+          <input type="text" [(ngModel)]="player.first_name" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> last_name </label>
+          <input type="text" [(ngModel)]="player.last_name" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> pdga_number </label>
+          <input type="text" [(ngModel)]="player.pdga_number" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> class </label>
+          <input type="text" [(ngModel)]="player.class" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> city </label>
+          <input type="text" [(ngModel)]="player.city" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> state_prov </label>
+          <input type="text" [(ngModel)]="player.state_prov" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> country </label>
+          <input type="text" [(ngModel)]="player.country" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> last_modified </label>
+          <input type="text" [(ngModel)]="player.last_modified" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> offset (default: 0) </label>
+          <input type="text" [(ngModel)]="player.offset" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> limit (default: 10; max: 200) </label>
+          <input type="text" [(ngModel)]="player.limit" class="form-control">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <span class="h5 pt-0"> Events </span>
+      </div>
+    </div>
+  </div>
+</div>
