@@ -73,23 +73,21 @@ export class WaycoComponent implements OnInit {
       'WI', 'MO', 'AR', 'OK', 'KS', 'LS', 'VA']
       .forEach((d) => {
         sampleData[d] = {
-          color: d3.interpolate('#ffffcc', '#800026')(Math.round(100 * Math.random()) / 100)
+          color: d3.color('steelblue')
         };
       });
 
     /* draw states on id #statesvg */
     this.draw('#statesvg', sampleData, this.tooltipHtml);
 
-    d3.select(self.frameElement).style('height', '600px');
+    d3.select(self.frameElement).style('height', '80vh');
   }
 
   draw(id, data, toolTip) {
     function mouseOver(event) {
       const selected: any = d3.select(event.target).data()[0];
       d3.select('#tooltip').transition().duration(200).style('opacity', .9);
-      d3.select('#tooltip').html(toolTip(selected.n, data[selected.id]))
-        .style('left', '20px')
-        .style('top', '0px');
+      d3.select('#tooltip').html(toolTip(selected.n, data[selected.id]));
     }
 
     function mouseOut() {
@@ -103,12 +101,12 @@ export class WaycoComponent implements OnInit {
       .attr('class', 'state')
       .attr('d', (d) => d.d)
       .style('fill', (d) => data[d.id].color)
+      .attr('stroke', 'white')
+      .attr('stroke-linejoin', 'round')
       .on('mouseover', mouseOver).on('mouseout', mouseOut);
   }
 
   tooltipHtml(n, d) {
-    if (n !== undefined && d !== undefined) {
-      return '<h4>' + n + '</h4>';
-    }
+    return '<h4> Click to view stats for ' + n + '</h4>';
   }
 }
