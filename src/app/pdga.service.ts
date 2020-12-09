@@ -19,7 +19,6 @@ export class PdgaService {
   constructor(private http: HttpClient) { }
 
   setToken(token: string) {
-    console.log('setToken');
     this.options.headers.session_name = token;
   }
 
@@ -57,7 +56,6 @@ export class PdgaService {
     let loops = 0;
     const allPlayers = [];
 
-    console.log('getPlayers');
     this.setCorsAnywhere(this.options.headers);
     return this.http.get(`https://api.pdga.com/services/json/players?state_prov=${state}&offset=${offset}&limit=200`);
     // .pipe(
@@ -79,8 +77,8 @@ export class PdgaService {
     this.setCorsAnywhere(this.options.headers);
 
     return this.http.post(`https://api.pdga.com/services/json/user/login`, JSON.stringify({
-      username: environment.userName,
-      password: environment.password
+      // username: environment.userName,
+      // password: environment.password
     }));
   }
 }
